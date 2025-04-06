@@ -2,16 +2,15 @@
 <html>
 <head>
     <style>
-        body/* {
-            background: #f0f0f0 url('https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png');
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            position: relative;
-            touch-action: manipulation;
-            font-family: Arial, sans-serif;
-        }*/
-
+      
+        html, body {
+    overflow: hidden;  /* Скрывает полосы прокрутки */
+    position: relative; /* Фиксирует положение */
+    height: 100%;      /* Блокировка вертикального скролла */
+    width: 100%;       /* Блокировка горизонтального скролла */
+    margin: 0;
+    padding: 0;
+}
        .glow-png {
     animation: 
         png-glow 2.5s ease-in-out infinite,
