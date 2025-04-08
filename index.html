@@ -13,6 +13,22 @@
     font-family: Arial, sans-serif;
 
 }
+        #splashScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+
+        
        .glow-png {
     animation: 
         png-glow 2.5s ease-in-out infinite,
@@ -58,7 +74,7 @@
 /* Плавное движение */
 @keyframes png-float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-55px); }
 }
         .layer {
             display: none;
@@ -100,8 +116,8 @@
         }
 
         .play-button {
-            width: 60px;
-            height: 60px;
+            width: 9vw; /* 60px */
+            height: 9vw;
             border-radius: 50%;
             background: #ff6b6b;
             border: none;
@@ -132,7 +148,7 @@
 
         .timeline-container {
             width: 100%;
-            height: 15px;
+            height: 2vh;
             background: rgba(0,0,0,0.1);
             border-radius: 3px;
             cursor: pointer;
@@ -187,10 +203,16 @@
             background: #ff6b6b;
             border-radius: 50%;
             cursor: pointer;
+
+
         }
     </style>
 </head>
 <body>
+    <div id="splashScreen">
+        <div class="loader"></div>
+        <div>Загрузка аудио...</div>
+    </div>
     <audio id="myAudio">
         <source src="mp3/audio.mp3" type="audio/mpeg">
         Ваш браузер не поддерживает аудио элемент.
@@ -328,6 +350,8 @@
         const progress = document.querySelector('.timeline-progress');
         const timeDisplay = document.querySelector('.time-display');
         const volumeSlider = document.querySelector('.volume-slider');
+        const splashScreen = document.getElementById('splashScreen');
+
 
         function formatTime(seconds) {
             const minutes = Math.floor(seconds / 60);
@@ -391,6 +415,18 @@
             if (audio.paused) audio.play();
         }, { once: true });
 
+        audio.addEventListener('loadeddata', () => {
+            // Показываем кнопку когда аудио готово к воспроизведению
+            splashScreen.style.opacity = '0';
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+            }, 300);
+        });
+
+        audio.addEventListener('error', () => {
+            splashScreen.innerHTML = 'Ошибка загрузки аудио';
+            splashScreen.style.background = '#ffebee';
+        });
 
     </script>
 </body>
