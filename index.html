@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: ffffff;
 
 }
         #splashScreen {
@@ -29,23 +30,6 @@
         }
 
 
-       .glow-png {
-    animation: 
-        png-glow 2.5s ease-in-out infinite,
-        png-float 3s ease-in-out infinite;
-}
-
-/* Свечение вокруг непрозрачных областей */
-@keyframes png-glow {
-    0%, 100% { filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.6)); }
-    50% { filter: drop-shadow(0 0 15px rgba(255, 100, 200, 0.8)); }
-}
-
-/* Плавное движение */
-@keyframes png-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
          #map {
             width: 99%;
             <!-- height: 400px; -->
@@ -53,6 +37,34 @@
             position: absolute;
             z-index: -1;
         }
+                .layer3 {
+
+            display: none;
+            width: 99%;
+            position: absolute;
+            /*max-width: 300px;*/
+            transition: opacity 0.3s;
+            /* Убрано cursor: pointer */
+            
+animation-name: blinker;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  animation-duration: 2s;
+  -webkit-animation-name: blinker;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 2s;
+}
+ 
+@keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+ 
+@-webkit-keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
         .layer1 {
 
             display: none;
@@ -84,7 +96,7 @@
 /* Плавное движение */
 @keyframes png-float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-0.3vh); }
 }
         /*#layers { top: 0%; left: 0%; }*/
 
@@ -241,6 +253,11 @@
          alt="1-1"
          data-start="271"
          data-end="507">
+             <img class="layer3" 
+         src="image/2-3.png" 
+         alt="2-3"
+         data-start="505"
+         data-end="510">
      
        
     <img class="layer" 
@@ -248,90 +265,202 @@
          alt="3"
          data-start="508"
          data-end="527">
+         <img class="layer1" 
+         src="image/13-13.png" 
+         alt="13"
+         data-start="508"
+         data-end="527">    
+         <img class="layer3" 
+         src="image/3-4.png" 
+         alt="3-4"
+         data-start="525"
+         data-end="530">
 
     <img class="layer" 
          src="image/4.png" 
          alt="4"
          data-start="527"
          data-end="560">
+         <img class="layer1" 
+         src="image/3-3.png" 
+         alt="3"
+         data-start="527"
+         data-end="560">
+         <img class="layer3" 
+         src="image/4-5.png" 
+         alt="4-5"
+         data-start="555"
+         data-end="565">
 
      <img class="layer" 
          src="image/5.png" 
          alt="5"
          data-start="560"
          data-end="598">
+         <img class="layer1" 
+         src="image/17-17.png" 
+         alt="17-17"
+         data-start="560"
+         data-end="598">
+         <img class="layer3" 
+         src="image/5-6.png" 
+         alt="5-6"
+         data-start="595"
+         data-end="603">
 
     <img class="layer" 
          src="image/6.png" 
          alt="6"
          data-start="598"
          data-end="651">   
+         <img class="layer1" 
+         src="image/62.png" 
+         alt="62"
+         data-start="598"
+         data-end="651">  
+         <img class="layer3" 
+         src="image/6-7.png" 
+         alt="6"
+         data-start="645"
+         data-end="655">   
     
     <img class="layer" 
          src="image/7.png" 
          alt="7"
          data-start="651"
          data-end="702">  
+         <img class="layer1" 
+         src="image/52-54.png" 
+         alt="52-54"
+         data-start="651"
+         data-end="702"> 
+         <img class="layer3" 
+         src="image/7-8.png" 
+         alt="7-8"
+         data-start="700"
+         data-end="707">  
 
     <img class="layer" 
          src="image/8.png" 
          alt="8"
          data-start="702"
          data-end="785"> 
+         <img class="layer1" 
+         src="image/24-24.png" 
+         alt="24"
+         data-start="702"
+         data-end="785">
+         <img class="layer3" 
+         src="image/8-9.png" 
+         alt="8-9"
+         data-start="780"
+         data-end="790"> 
 
     <img class="layer" 
          src="image/9.png" 
          alt="9"
          data-start="785"
          data-end="829">
+         <img class="layer3" 
+         src="image/9-10.png" 
+         alt="9-10"
+         data-start="825"
+         data-end="835">
+         
 
     <img class="layer" 
          src="image/10.png" 
          alt="10"
          data-start="829"
          data-end="868">
+         <img class="layer3" 
+         src="image/10-11.png" 
+         alt="10"
+         data-start="865"
+         data-end="872">
 
      <img class="layer" 
          src="image/11.png" 
          alt="11"
          data-start="868"
          data-end="949">
+         <img class="layer3" 
+         src="image/11-12.png" 
+         alt="11"
+         data-start="945"
+         data-end="950" >
+        
 
     <img class="layer" 
          src="image/12.png" 
          alt="12 "
          data-start="949"
          data-end="978">
+         <img class="layer3" 
+         src="image/12-13.png" 
+         alt="12-13"
+         data-start="975"
+         data-end="983">
          
     <img class="layer" 
          src="image/13.png" 
          alt="13"
          data-start="978"
          data-end="1018">  
+         <img class="layer3" 
+         src="image/13-14.png" 
+         alt="13-14"
+         data-start="1015"
+         data-end="1020">
 
     <img class="layer" 
          src="image/14.png" 
          alt="14"
          data-start="1018"
          data-end="1056">
+         <img class="layer3" 
+         src="image/14-15.png" 
+         alt="14-15"
+         data-start="1050"
+         data-end="1070">
 
     <img class="layer" 
          src="image/15.png" 
          alt="15"
          data-start="1056"
-         data-end="1147">          
+         data-end="1147">
+         <img class="layer" 
+         src="image/15-16.png" 
+         alt="15-16"
+         data-start="1145"
+         data-end="1152">           
 
     <img class="layer" 
          src="image/16.png" 
          alt="16"
          data-start="1147"
-         data-end="1208">       
+         data-end="1208"> 
+         <img class="layer" 
+         src="image/16-17.png" 
+         alt="16-17"
+         data-start="1205"
+         data-end="1212">      
 
     <img class="layer" 
          src="image/17.png" 
          alt="17"
          data-start="1208"
          data-end="1248">
+         <img class="layer1" 
+         src="image/76-76.png" 
+         alt="76"
+         data-start="1208"
+         data-end="1248">
+         <img class="layer" 
+         src="image/17-17a.png" 
+         alt="17-17a"
+         data-start="1245"
+         data-end="1250">
 
     <img class="layer" 
          src="image/17а.png" 
@@ -394,6 +523,18 @@
         audio.addEventListener('timeupdate', () => {
             const currentTime = audio.currentTime;
             document.querySelectorAll('.layer1').forEach(layer => {
+                const start = parseFloat(layer.dataset.start);
+                const end = parseFloat(layer.dataset.end);
+                layer.style.display = 
+                    (currentTime >= start && currentTime < end) 
+                    ? 'block' 
+                    : 'none';
+            });
+            updateUI();
+        });
+        audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+            document.querySelectorAll('.layer3').forEach(layer => {
                 const start = parseFloat(layer.dataset.start);
                 const end = parseFloat(layer.dataset.end);
                 layer.style.display = 
