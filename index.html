@@ -28,7 +28,7 @@
             transition: opacity 0.3s;
         }
 
-        
+
        .glow-png {
     animation: 
         png-glow 2.5s ease-in-out infinite,
@@ -54,27 +54,14 @@
             z-index: -1;
         }
         .layer1 {
+
             display: none;
             width: 99%;
             position: absolute;
             /*max-width: 300px;*/
             transition: opacity 0.3s;
             /* Убрано cursor: pointer */
-             animation: 
-        png-glow 2.5s ease-in-out infinite,
-        png-float 3s ease-in-out infinite;
-        }
-
-        /* Убраны hover-эффекты */
-        @keyframes png-glow {
-    0%, 100% { filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.6)); }
-    50% { filter: drop-shadow(0 0 15px rgba(255, 100, 200, 0.8)); }
-}
-
-/* Плавное движение */
-@keyframes png-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-55px); }
+            
 }
         .layer {
             display: none;
@@ -136,14 +123,15 @@
         .play-button::before {
             content: '';
             border-style: solid;
-            border-width: 14px 0 14px 22px;
+            border-width: 14% 0 14% 22%;
             border-color: transparent transparent transparent #fff;
             margin-left: 5px;
         }
 
         .play-button.paused::before {
             border-style: double;
-            border-width: 0px 0 0px 22px;
+            content: '!';
+            border-width: 0px 0 0px 12px;
         }
 
         .timeline-container {
@@ -235,17 +223,25 @@
     </div>
 
     <img id="map" src="image/map.jpg" alt="Карта зала изваяний" usemap="#sculpture-map">
+   
+
     <div id="liquid-effect">
-    <img class="layer1" 
+   <!--  <img class="layer1" 
          src="image/start.png" 
          alt="start"
          data-start="0"
-         data-end="1">
+         data-end="1"> -->
     <img class="layer" 
          src="image/2.png" 
          alt="2"
          data-start="271"
          data-end="507">
+          <img class="layer1" 
+         src="image/1-1.png" 
+         alt="1-1"
+         data-start="271"
+         data-end="507">
+     
        
     <img class="layer" 
          src="image/3.png" 
@@ -386,6 +382,18 @@
         audio.addEventListener('timeupdate', () => {
             const currentTime = audio.currentTime;
             document.querySelectorAll('.layer').forEach(layer => {
+                const start = parseFloat(layer.dataset.start);
+                const end = parseFloat(layer.dataset.end);
+                layer.style.display = 
+                    (currentTime >= start && currentTime < end) 
+                    ? 'block' 
+                    : 'none';
+            });
+            updateUI();
+        });
+        audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+            document.querySelectorAll('.layer1').forEach(layer => {
                 const start = parseFloat(layer.dataset.start);
                 const end = parseFloat(layer.dataset.end);
                 layer.style.display = 
